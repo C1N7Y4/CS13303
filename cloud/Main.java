@@ -4,6 +4,8 @@ import cloud.exceptions.CloudGenericException;
 
 public class Main {
 
+	public Main() {}
+
 	public static void createVM(int memory, int cpu, int diskCapacity, int suffix, String os)
 			throws CloudGenericException
 	{
@@ -51,4 +53,5 @@ public class Main {
 
 	}
 	
+	public static void printErrors(StringBuilder builder) {}
 }
