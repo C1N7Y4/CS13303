@@ -2,10 +2,10 @@ package cloud;
 
 import cloud.exceptions.CloudGenericException;
 
-public class HardDiskDrive {
+public class HardDiskDrive extends VirtualDevice
+{
 	String id;						// Identificador único
 	long capacityGB;				// Capacidad en GB
-	int unitNumber;                 // Número de unidad
 	String label;	                // Etiqueta
 	
 	private static final int MIN_CAPACITY = 1;
@@ -20,7 +20,8 @@ public class HardDiskDrive {
 	 * usando "+" por StringBuilder en Constructores 
 	 */
 	public HardDiskDrive(long capacityGB, int unitNumber) throws CloudGenericException {
-		this.unitNumber = unitNumber;
+		super(unitNumber);
+
 		// Escribe tu código {
 		if ( capacityGB < MIN_CAPACITY ) {
 			throw new CloudGenericException("La capacidad minima es " + MIN_CAPACITY);

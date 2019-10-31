@@ -2,10 +2,10 @@ package cloud;
 
 import cloud.util.CloudUtil;
 
-public class NetworkCard {
+public class NetworkCard extends VirtualDevice
+{
 	public static final int MAX_SPEED_MB = 100;            
 	public final String macAddress;            
-	public final int unitNumber;  
 	public final String label;
 	public int speedMb = MAX_SPEED_MB;
 	public String network;                                         
@@ -16,8 +16,10 @@ public class NetworkCard {
 	 * usando "+" por StringBuilder en 
 	 * Constructores 
 	 */
-	NetworkCard(int unitNumber){
-		this.unitNumber = unitNumber;
+	NetworkCard(int unitNumber)
+	{
+		super(unitNumber);
+
 		// Escribe tu código {
 		StringBuilder sb = new StringBuilder();
 		this.label = sb.append("Network Card ").append(unitNumber).toString();
@@ -25,9 +27,11 @@ public class NetworkCard {
 		this.macAddress = CloudUtil.getMACAddress();
 	}
 	
-	NetworkCard(String network, int unitNumber){
+	NetworkCard(String network, int unitNumber)
+	{
+		super(unitNumber);
+
 		this.network = network;
-		this.unitNumber = unitNumber;
 		// Escribe tu código {
 		StringBuilder sb = new StringBuilder();
 		this.label = sb.append("Network Card ").append(unitNumber).toString();
@@ -35,9 +39,11 @@ public class NetworkCard {
 		this.macAddress = CloudUtil.getMACAddress();
 	}
 
-	NetworkCard(String network, int unitNumber, int speedMb){
+	NetworkCard(String network, int unitNumber, int speedMb)
+	{
+		super(unitNumber);
+
 		this.network = network;
-		this.unitNumber = unitNumber;
 		this.speedMb = speedMb;
 		// Escribe tu código {
 		StringBuilder sb = new StringBuilder();
